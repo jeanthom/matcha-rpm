@@ -23,8 +23,9 @@ cd %{_builddir}/src/github.com/emersion/matcha
 
 %install
 mkdir -p %{buildroot}%{_bindir}
-cp %{_builddir}/matcha %{buildroot}%{_bindir}
-cp -r %{_builddir}/public/ %{_datadir}/matcha/
+mkdir -p %{buildroot}%{_datadir}
+cp %{_builddir}/src/github.com/emersion/matcha/matcha %{buildroot}%{_bindir}
+cp -r %{_builddir}/src/github.com/emersion/matcha/public/ %{_datadir}/matcha/
 
 %files
 %{_bindir}/matcha
