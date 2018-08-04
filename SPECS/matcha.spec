@@ -25,8 +25,10 @@ dep ensure
 %install
 mkdir -p %{buildroot}%{_bindir}
 cp %{_builddir}/matcha %{buildroot}%{_bindir}
+cp -r %{_builddir}/public/ %{_datadir}/matcha/
 
 %files
 %{_bindir}/matcha
+%dir %{_datadir}/matcha
 
 %changelog
