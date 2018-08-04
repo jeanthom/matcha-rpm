@@ -20,7 +20,6 @@ export GOPATH="%{_builddir}"
 go get -u github.com/emersion/matcha/cmd/matcha
 cd %{_builddir}/src/github.com/emersion/matcha
 (cd public && npm install)
-dep ensure
 
 %install
 mkdir -p %{buildroot}%{_bindir}
