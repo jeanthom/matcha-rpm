@@ -17,7 +17,7 @@ A simple read-only web interface for Git repositories.
 
 %build
 export GOPATH="%{_builddir}"
-go get -ldflags "-X $_gourl.publicDir=/usr/share/webapps/matcha" github.com/emersion/matcha/cmd/matcha
+go get -ldflags "-X github.com/emersion/matcha.publicDir=/usr/share/webapps/matcha" github.com/emersion/matcha/cmd/matcha
 cd %{_builddir}/src/github.com/emersion/matcha
 (cd public && npm install)
 
