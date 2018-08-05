@@ -1,6 +1,6 @@
 %define debug_package %{nil}
 Name:           matcha
-Version:        0.45.1
+Version:        0.10
 Release:        1%{?dist}
 Summary:        A simple read-only web interface for Git repositories.
 
@@ -17,18 +17,18 @@ A simple read-only web interface for Git repositories.
 
 %build
 export GOPATH="%{_builddir}"
-go get -u github.com/emersion/matcha/cmd/matcha
+go get -ldflags "-X $_gourl.publicDir=/usr/share/webapps/matcha" github.com/emersion/matcha/cmd/matcha
 cd %{_builddir}/src/github.com/emersion/matcha
 (cd public && npm install)
 
 %install
 mkdir -p %{buildroot}%{_bindir}
-mkdir -p %{buildroot}%{_datadir}
-cp %{_builddir}/src/github.com/emersion/matcha/matcha %{buildroot}%{_bindir}
-cp -r %{_builddir}/src/github.com/emersion/matcha/public/ %{_datadir}/matcha/
+mkdir -p %{buildroot}%{_datadir}/webapps/matcha/
+cp %{_builddir}/bin/matcha %{buildroot}%{_bindir}
+cp -r %{_builddir}/src/github.com/emersion/matcha/public/ %{buildroot}%{_datadir}/webapps/matcha/
 
 %files
 %{_bindir}/matcha
-%dir %{_datadir}/matcha
+%{_datadir}/webapps/matcha
 
 %changelog
