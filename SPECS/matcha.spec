@@ -25,7 +25,7 @@ cd %{_builddir}/src/github.com/emersion/matcha
 mkdir -p %{buildroot}%{_bindir}
 mkdir -p %{buildroot}%{_datadir}/webapps/matcha/
 cp %{_builddir}/bin/matcha %{buildroot}%{_bindir}
-cp -r %{_builddir}/src/github.com/emersion/matcha/public/ %{buildroot}%{_datadir}/webapps/matcha/
+cp -r %{_builddir}/src/github.com/emersion/matcha/public/* %{buildroot}%{_datadir}/webapps/matcha/
 
 %files
 %{_bindir}/matcha
